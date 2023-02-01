@@ -41,15 +41,17 @@ const BikeStations = () => {
 
     return (
         <div>
-            <select value={sortOrder} onChange={handleSortOrderChange}>
-                <option value={1}>Ascending</option>
-                <option value={-1}>Descending</option>
-            </select>
-            <select value={limit} onChange={handleLimitChange}>
-                <option value={10}>10</option>
-                <option value={20}>20</option>
-                <option value={50}>50</option>
-            </select>
+            <div>
+                <select className="select select-info max-w-xs" value={sortOrder} onChange={handleSortOrderChange}>
+                    <option value={1}>Ascending</option>
+                    <option value={-1}>Descending</option>
+                </select>
+                <select className="select select-info max-w-xs" value={limit} onChange={handleLimitChange}>
+                    <option value={10}>10</option>
+                    <option value={20}>20</option>
+                    <option value={50}>50</option>
+                </select>
+            </div>
             <div>
                 {bikeStations.map(bikeStation => (
                     <div key={bikeStation._id}>{bikeStation.name}</div>
@@ -61,7 +63,7 @@ const BikeStations = () => {
                         {pageNumber === '...' ? (
                             <span className="dots">{pageNumber}</span>
                         ) : (
-                            <button className='btn' onClick={() => handlePageChange(pageNumber)} disabled={pageNumber === currentPage}>
+                            <button className='btn btn-primary' onClick={() => handlePageChange(pageNumber)} disabled={pageNumber === currentPage}>
                                 {pageNumber}
                             </button>
                         )}

@@ -1,11 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import logo from '../../../resources/logo1.png'
 
 const NavBar = () => {
-    const menuItems = <>
-        <li><Link to='/'>Home</Link></li>
+    const location = useLocation();
 
-    </>
+    const menuItems = (
+        <>
+            <li>
+                <Link to='/'>Home</Link>
+            </li>
+            <li className={location.pathname === '/bike-stations' ? 'bg-primary rounded' : ''}>
+                <Link to='/bike-stations'>Bike Stations</Link>
+            </li>
+            <li className={location.pathname === '/journeyList-compiled' ? 'bg-primary rounded' : ''}>
+                <Link to='/journeyList-compiled'>Journey List</Link>
+            </li>
+            <li className={location.pathname === '/about' ? 'bg-primary rounded' : ''}>
+                <Link to='/about'>About</Link>
+            </li>
+        </>
+    );
+
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -17,14 +33,17 @@ const NavBar = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <Link to='/'><img src={logo} alt=''></img></Link>
+                <a className="align-middle text-center text-accent normal-case text-xl font-bold hidden lg:block md:block">City Bike</a>
+
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    {menuItems}                </ul>
+                    {menuItems}
+                </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Get started</a>
+                <a className="btn btn-primary">Get started</a>
             </div>
         </div>
     );
