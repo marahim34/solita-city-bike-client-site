@@ -1,11 +1,12 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
-import BikeStations from '../bikeStations/BikeStations';
+import BikeStationInfoHome from '../BikeStationInfoHome/BikeStationInfoHome';
 
 const Home = () => {
     return (
         <div className='mx-5'>
             <Banner></Banner>
+            <BikeStationInfoHome></BikeStationInfoHome>
         </div>
     );
 };

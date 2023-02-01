@@ -42,6 +42,11 @@ const BikeStations = () => {
     return (
         <div>
             <div>
+                <h1 className='text-5xl text-accent font-semibold mb-2'>City Bike Stations</h1>
+                <p className='text-justify text-black p-6'>Most of the stations are physical stations, i.e. the station has racks for city bikes, on which the city bike is locked when returned. Some city bike stations are so-called virtual stations that can be identified from the information board. When using a virtual station, return the bike by parking it near the information board. During the city bike season, up-to-date information about city bike stations can be found in the Tampereen kaupunkipyörät app and in the Nysse journey planner.</p>
+
+            </div>
+            <div>
                 <select className="select select-info max-w-xs" value={sortOrder} onChange={handleSortOrderChange}>
                     <option value={1}>Ascending</option>
                     <option value={-1}>Descending</option>

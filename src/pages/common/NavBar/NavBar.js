@@ -7,16 +7,16 @@ const NavBar = () => {
 
     const menuItems = (
         <>
-            <li>
+            <li className={location.pathname === '/' ? 'rounded font-semibold' : ''}>
                 <Link to='/'>Home</Link>
             </li>
-            <li className={location.pathname === '/bike-stations' ? 'bg-primary rounded' : ''}>
+            <li className={location.pathname === '/bike-stations' ? 'bg-primary rounded font-semibold' : ''}>
                 <Link to='/bike-stations'>Bike Stations</Link>
             </li>
-            <li className={location.pathname === '/journeyList-compiled' ? 'bg-primary rounded' : ''}>
+            <li className={location.pathname === '/journeyList-compiled' ? 'bg-primary rounded font-semibold' : ''}>
                 <Link to='/journeyList-compiled'>Journey List</Link>
             </li>
-            <li className={location.pathname === '/about' ? 'bg-primary rounded' : ''}>
+            <li className={location.pathname === '/about' ? 'bg-primary rounded font-semibold' : ''}>
                 <Link to='/about'>About</Link>
             </li>
         </>

@@ -8,9 +8,7 @@ const Banner = () => {
                 <div>
                     <h1 className="text-5xl text-accent font-bold">City Bike</h1>
                     <p className="py-6">Welcome to use the city bikes again in the spring!
-                        <br />
                         The city bike season starts on 1 April and ends on 31 October.
-
                     </p>
                     <button className='btn btn-primary'>Know More!</button>
                 </div>
