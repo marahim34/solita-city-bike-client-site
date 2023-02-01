@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import SingleBikeStation from '../SingleBikeStation/SingleBikeStation';
 
 const BikeStations = () => {
     const [sortOrder, setSortOrder] = useState(1);
@@ -43,11 +44,12 @@ const BikeStations = () => {
         <div>
             <div>
                 <h1 className='text-5xl text-accent font-semibold mb-2'>City Bike Stations</h1>
-                <p className='text-justify text-black p-6'>Most of the stations are physical stations, i.e. the station has racks for city bikes, on which the city bike is locked when returned. Some city bike stations are so-called virtual stations that can be identified from the information board. When using a virtual station, return the bike by parking it near the information board. During the city bike season, up-to-date information about city bike stations can be found in the Tampereen kaupunkipyörät app and in the Nysse journey planner.</p>
+                <p className='text-justify text-black p-6'>Most of the stations are physical stations, i.e. the station has racks for city bikes, on which the city bike is locked when returned. Some city bike stations are so-called virtual stations that can be identified from the information board. When using a virtual station, return the bike by parking it near the information board. During the city bike season, up-to-date information about city bike stations can be found in the City Bike app.</p>
 
+                <h3 className='text-3xl text-accent font-semibold mb-2'>Our Station Locations</h3>
             </div>
             <div>
-                <select className="select select-info max-w-xs" value={sortOrder} onChange={handleSortOrderChange}>
+                <select className="select select-info max-w-xs mr-3" value={sortOrder} onChange={handleSortOrderChange}>
                     <option value={1}>Ascending</option>
                     <option value={-1}>Descending</option>
                 </select>
@@ -57,12 +59,10 @@ const BikeStations = () => {
                     <option value={50}>50</option>
                 </select>
             </div>
-            <div>
-                {bikeStations.map(bikeStation => (
-                    <div key={bikeStation._id}>{bikeStation.name}</div>
-                ))}
+            <div className="flex flex-wrap w-full p-6">
+                {bikeStations.map(bikeStation => <SingleBikeStation key={bikeStation._id} bikeStation={bikeStation}></SingleBikeStation>)}
             </div>
-            <div>
+            <div className='mb-6'>
                 {pageNumbers.map((pageNumber, index) => (
                     <React.Fragment key={index}>
                         {pageNumber === '...' ? (
