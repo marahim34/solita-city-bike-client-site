@@ -12,27 +12,30 @@ const JourneyListCompiled = () => {
             name: 'May 2021',
             description: 'The list contains the data from journeys made with city bikes in the Helsinki Capital area on May, 2021.',
             icon: mayIcon,
-            bgClass: 'bg-gradient-to-r from-primary to-secondary text-white'
+            bgClass: 'bg-gradient-to-r from-primary to-secondary text-white',
+            link: 'http://localhost:3000/journey-destinations/may'
         },
         {
             id: 2,
             name: 'June 2021',
             description: 'The list contains the data from journeys made with city bikes in the Helsinki Capital area on June, 2021.',
             icon: juneIcon,
-            bgClass: 'bg-accent'
+            bgClass: 'bg-accent',
+            link: 'http://localhost:3000/journey-destinations/july'
         },
         {
             id: 3,
             name: 'Contact Us',
             description: 'The list contains the data from journeys made with city bikes in the Helsinki Capital area on July, 2021.',
             icon: julyIcon,
-            bgClass: 'bg-gradient-to-r from-primary to-secondary text-white'
+            bgClass: 'bg-gradient-to-r from-primary to-secondary text-white',
+            link: 'http://localhost:3000/journey-destinations/july'
         },
     ]
 
     return (
         <div>
-            <div className='grid mt-8 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+            <div className='grid mt-8 md:grid-cols-2 lg:grid-cols-3 gap-6 m-6'>
                 {
                     cardData.map(card => <JourneyListCard key={card.id} card={card}></JourneyListCard>)
                 }

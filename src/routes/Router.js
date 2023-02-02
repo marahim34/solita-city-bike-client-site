@@ -2,6 +2,7 @@ import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import Main from '../layout/Main';
 import About from '../pages/About/About';
+import BikeStationCard from '../pages/BikeStationCard/BikeStationCard';
 import BikeStations from '../pages/bikeStations/BikeStations';
 import Error from '../pages/Error/Error';
 import Home from '../pages/Home/Home';
@@ -9,6 +10,7 @@ import JourneyListCompiled from '../pages/JourneyListCompiled/JourneyListCompile
 import JourneyListJuly from '../pages/JourneyListJuly/JourneyListJuly';
 import JourneyListJune from '../pages/JourneyListJune/JourneyListJune';
 import JourneyListMay from '../pages/JourneyListMay/JourneyListMay';
+import MonthwiseJourneyCard from '../pages/MonthwiseJourneyCard/MonthwiseJourneyCard';
 import SingleBikeStation from '../pages/SingleBikeStation/SingleBikeStation';
 
 const Router = createBrowserRouter([
@@ -26,7 +28,8 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/bike-stations/:id',
-                element: <SingleBikeStation></SingleBikeStation>
+                loader: ({ params }) => fetch(`http://localhost:5000/bike-stations/${params.id}`),
+                element: <BikeStationCard></BikeStationCard>
             },
             {
                 path: '/journey-destinations/may',
@@ -44,6 +47,11 @@ const Router = createBrowserRouter([
                 path: '/journeyList-compiled',
                 element: <JourneyListCompiled></JourneyListCompiled>
             },
+            {
+                path: '/month/:id',
+                element: <MonthwiseJourneyCard></MonthwiseJourneyCard>
+            },
+
             {
                 path: '/about',
                 element: <About></About>

@@ -47,15 +47,18 @@ const BikeStations = () => {
                 <h1 className='text-5xl text-accent font-semibold mb-2'>City Bike Stations</h1>
                 <p className='text-justify text-black p-6'>Most of the stations are physical stations, i.e. the station has racks for city bikes, on which the city bike is locked when returned. Some city bike stations are so-called virtual stations that can be identified from the information board. When using a virtual station, return the bike by parking it near the information board. During the city bike season, up-to-date information about city bike stations can be found in the City Bike app.</p>
             </div>
-            <div class="flex">
+            <div className="flex">
                 <div className="w-2/3 h-full">
                     <h3 className='text-3xl text-accent font-semibold mb-2'>Our Station Locations</h3>
                     <div className="flex justify-between mt-2 mb-2">
-                        <select id="sortOrder" className="bg-white border border-gray-400 rounded p-2" defaultValue={'Default'} onChange={handleSortOrderChange}>
-                            <option value="Default" disabled>Default</option>
-                            <option value="ascending">Ascending</option>
-                            <option value="descending">Descending</option>
-                        </select>
+                        <div className="w-1/3">
+                            <label htmlFor="limit" className="text-xl text-black font-medium">Sort: </label>
+                            <select id="sortOrder" className="bg-white border border-gray-400 rounded p-2" defaultValue={'Default'} onChange={handleSortOrderChange}>
+                                <option value="Default" disabled>Default</option>
+                                <option value="ascending">Ascending</option>
+                                <option value="descending">Descending</option>
+                            </select>
+                        </div>
                         <div className="w-1/3">
                             <label htmlFor="limit" className="text-xl text-black font-medium">Limit: </label>
                             <select id="limit" className="bg-white border border-gray-400 rounded p-2" value={limit} onChange={handleLimitChange}>

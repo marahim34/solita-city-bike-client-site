@@ -1,17 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const JourneyListCard = ({ card }) => {
-    const { name, description, icon, bgClass } = card;
+    const { id, name, description, icon, link } = card;
     return (
-        <div>
+        <div className=''>
             <div>
 
             </div>
-            <div className={`card text-white p-6 shadow-xl flex flex-col text-left ${bgClass}`}>
+            <div className={`card text-accent p-6 shadow-xl flex flex-col text-left`}>
                 <div> <figure><img src={icon} alt="Movie" /></figure></div>
                 <div className="card-body">
                     <h2 className="card-title">{name}</h2>
                     <p>{description}</p>
+                    <Link to={link}><button className='btn btn-primary'>Details</button></Link>
                 </div>
             </div>
         </div>
