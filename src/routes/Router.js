@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Main from '../layout/Main';
 import About from '../pages/About/About';
 import BikeStations from '../pages/bikeStations/BikeStations';
+import Error from '../pages/Error/Error';
 import Home from '../pages/Home/Home';
 import JourneyListCompiled from '../pages/JourneyListCompiled/JourneyListCompiled';
 import JourneyListJuly from '../pages/JourneyListJuly/JourneyListJuly';
@@ -46,6 +47,10 @@ const Router = createBrowserRouter([
             {
                 path: '/about',
                 element: <About></About>
+            },
+            {
+                path: '*',
+                element: <Error></Error>
             }
 
         ]
