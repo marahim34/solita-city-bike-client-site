@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import map from '../../resources/bikeStationMap.jpg'
+import map from '../../../resources/bikeStationMap.jpg'
 
 const BikeStationInfoHome = () => {
     return (

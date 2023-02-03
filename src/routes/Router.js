@@ -2,14 +2,14 @@ import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import Main from '../layout/Main';
 import About from '../pages/About/About';
-import BikeStationCard from '../pages/BikeStationCard/BikeStationCard';
-import BikeStations from '../pages/bikeStations/BikeStations';
+import BikeStationCard from '../pages/BikeStationsPage/BikeStationCard/BikeStationCard';
+import BikeStations from '../pages/BikeStationsPage/bikeStations/BikeStations';
 import Error from '../pages/Error/Error';
-import Home from '../pages/Home/Home';
-import JourneyListCompiled from '../pages/JourneyListCompiled/JourneyListCompiled';
-import JourneyListJuly from '../pages/JourneyListJuly/JourneyListJuly';
-import JourneyListJune from '../pages/JourneyListJune/JourneyListJune';
-import JourneyListMay from '../pages/JourneyListMay/JourneyListMay';
+import Home from '../pages/HomePage/Home/Home';
+import JourneyListCompiled from '../pages/JourneyDestinationsPage/JourneyListCompiled/JourneyListCompiled';
+import JourneyListJuly from '../pages/JourneyDestinationsPage/JourneyListJuly/JourneyListJuly';
+import JourneyListJune from '../pages/JourneyDestinationsPage/JourneyListJune/JourneyListJune';
+import JourneyListMay from '../pages/JourneyDestinationsPage/JourneyListMay/JourneyListMay';
 
 const Router = createBrowserRouter([
     {

@@ -1,7 +1,4 @@
-import logo from './logo.svg';
 import './App.css';
-import BikeStations from './pages/bikeStations/BikeStations';
-import NavBar from './pages/common/NavBar/NavBar';
 import { RouterProvider } from 'react-router-dom';
 import Router from './routes/Router';
 
