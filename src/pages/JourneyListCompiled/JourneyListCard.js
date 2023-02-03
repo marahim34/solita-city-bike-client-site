@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const JourneyListCard = ({ card }) => {
-    const { id, name, description, icon, link } = card;
+    const { name, description, icon, link } = card;
     return (
         <div className=''>
             <div>

@@ -10,8 +10,6 @@ import JourneyListCompiled from '../pages/JourneyListCompiled/JourneyListCompile
 import JourneyListJuly from '../pages/JourneyListJuly/JourneyListJuly';
 import JourneyListJune from '../pages/JourneyListJune/JourneyListJune';
 import JourneyListMay from '../pages/JourneyListMay/JourneyListMay';
-import MonthwiseJourneyCard from '../pages/MonthwiseJourneyCard/MonthwiseJourneyCard';
-import SingleBikeStation from '../pages/SingleBikeStation/SingleBikeStation';
 
 const Router = createBrowserRouter([
     {
@@ -47,10 +45,7 @@ const Router = createBrowserRouter([
                 path: '/journeyList-compiled',
                 element: <JourneyListCompiled></JourneyListCompiled>
             },
-            {
-                path: '/month/:id',
-                element: <MonthwiseJourneyCard></MonthwiseJourneyCard>
-            },
+
 
             {
                 path: '/about',
