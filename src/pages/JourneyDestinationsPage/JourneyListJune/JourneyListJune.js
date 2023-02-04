@@ -10,11 +10,12 @@ const JourneyListJune = () => {
     const [sortOrder, setSortOrder] = useState('');
     const [journeys, setJourneys] = useState(0);
     const [loading, setLoading] = useState(false);
+    const [filter, setFilter] = useState('');
 
     const getJourneyDestinations = async () => {
         setLoading(true);
         try {
-            const response = await axios.get(`http://localhost:5000/journey-destinations/june?page=${currentPage}&limit=${limit}&sortOrder=${sortOrder}`);
+            const response = await axios.get(`http://localhost:5000/journey-destinations/june?page=${currentPage}&limit=${limit}&sortOrder=${sortOrder}&filter=${filter}`);
             setJourneyDestinations(response.data.data);
             setTotalPages(Math.ceil(response.data.count / limit));
             setJourneys(response.data.count);
@@ -26,7 +27,7 @@ const JourneyListJune = () => {
 
     useEffect(() => {
         getJourneyDestinations();
-    }, [currentPage, limit, sortOrder]);
+    }, [currentPage, limit, sortOrder, filter]);
 
     const handleLimitChange = (event) => {
         setLimit(event.target.value);
@@ -38,6 +39,10 @@ const JourneyListJune = () => {
 
     const handlePageChange = (page) => {
         setCurrentPage(page);
+    };
+
+    const handleFilterChange = (event) => {
+        setFilter(event.target.value);
     };
 
     const pageNumbers = [];
@@ -76,6 +81,11 @@ const JourneyListJune = () => {
                                     <option value={50}>50</option>
                                     <option value={100}>100</option>
                                 </select>
+                            </div>
+                            <div>
+                                <label htmlFor="filter" className="text-xl text-black font-medium">Filter: </label>
+                                <input type="text" id="filter" className="bg-white border border-gray-400 rounded p-2" value={filter} onChange={handleFilterChange} />
+
                             </div>
                         </div>
                         <div className="flex flex-wrap w-full p-6 text-xs">

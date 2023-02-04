@@ -53,9 +53,9 @@ const JourneyListJuly = () => {
             {loading && <button className="btn loading">loading</button>}
             <div>
                 <div>
-                    <h1 className='text-5xl text-accent font-semibold mb-2'>Journey Destinations in June, 2021</h1>
+                    <h1 className='text-5xl text-accent font-semibold mb-2'>Journey Destinations in July, 2021</h1>
                     <p className='text-justify text-black p-6'>During the city bike season, up-to-date information about city bike stations can be found in the City Bike app.</p>
-                    <p className='text-justify text-black pl-6 pr-6'>Our custoers have used the city bike at least in {journeys} journeys in June, 2021.</p>
+                    <p className='text-justify text-black pl-6 pr-6'>Our custoers have used the city bike at least in {journeys} journeys in July, 2021.</p>
                 </div>
                 <div className="block md:flex flex-col md:flex-row w-full h-full">
                     <div className="md:w-2/3 h-full p-6">

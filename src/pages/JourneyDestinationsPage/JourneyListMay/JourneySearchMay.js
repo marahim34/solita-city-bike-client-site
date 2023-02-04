@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const JourneySearchJuly = () => {
+const JourneySearchMay = () => {
     const [key, setKey] = useState('');
     const [limit, setLimit] = useState(20);
     const [page, setPage] = useState(1);
@@ -113,4 +113,4 @@ const JourneySearchJuly = () => {
     );
 };
 
-export default JourneySearchJuly;
+export default JourneySearchMay;
