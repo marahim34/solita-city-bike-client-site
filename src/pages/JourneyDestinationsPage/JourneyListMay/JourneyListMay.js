@@ -14,7 +14,7 @@ const JourneyListMay = () => {
     const getJourneyDestinations = async () => {
         setLoading(true);
         try {
-            const response = await axios.get(`http://localhost:5000/journey-destinations/may?page=${currentPage}&limit=${limit}&sortOrder=${sortOrder}`);
+            const response = await axios.get(`https://city-bike-marahim34.vercel.app/journey-destinations/may?page=${currentPage}&limit=${limit}&sortOrder=${sortOrder}`);
             setJourneyDestinations(response.data.data);
             setTotalPages(Math.ceil(response.data.count / limit));
             setJourneys(response.data.count);
@@ -53,7 +53,7 @@ const JourneyListMay = () => {
             {loading && <button className="btn loading">loading</button>}
             <div>
                 <div>
-                    <h1 className='text-5xl text-accent font-semibold mb-2'>Journey Destinations in June, 2021</h1>
+                    <h1 className='text-5xl text-accent font-semibold mb-2'>Journey Destinations in May, 2021</h1>
                     <p className='text-justify text-black p-6'>During the city bike season, up-to-date information about city bike stations can be found in the City Bike app.</p>
                     <p className='text-justify text-black pl-6 pr-6'>Our custoers have used the city bike at least in {journeys} journeys in May, 2021.</p>
                 </div>

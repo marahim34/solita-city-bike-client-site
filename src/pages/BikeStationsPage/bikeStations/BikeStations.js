@@ -9,11 +9,19 @@ const BikeStations = () => {
     const [totalPages, setTotalPages] = useState(0);
     const [limit, setLimit] = useState(20);
     const [sortOrder, setSortOrder] = useState('');
+    const [loading, setLoading] = useState(false);
+
 
     const getBikeStations = async () => {
-        const response = await axios.get(`http://localhost:5000/bike-stations?page=${currentPage}&limit=${limit}&sortOrder=${sortOrder}`);
-        setBikeStations(response.data.data);
-        setTotalPages(Math.ceil(response.data.count / limit));
+        setLoading(true)
+        try {
+            const response = await axios.get(`https://city-bike-marahim34.vercel.app/bike-stations?page=${currentPage}&limit=${limit}&sortOrder=${sortOrder}`);
+            setBikeStations(response.data.data);
+            setTotalPages(Math.ceil(response.data.count / limit));
+        }
+        finally {
+            setLoading(false)
+        }
     };
 
     useEffect(() => {
@@ -43,6 +51,7 @@ const BikeStations = () => {
 
     return (
         <div>
+            {loading && <button className="btn loading">loading</button>}
             <div>
                 <h1 className='text-5xl text-accent font-semibold mb-2'>City Bike Stations</h1>
                 <p className='text-justify text-black p-6'>Most of the stations are physical stations, i.e. the station has racks for city bikes, on which the city bike is locked when returned. Some city bike stations are so-called virtual stations that can be identified from the information board. When using a virtual station, return the bike by parking it near the information board. During the city bike season, up-to-date information about city bike stations can be found in the City Bike app.</p>

@@ -11,7 +11,7 @@ const JourneySearchJuly = () => {
 
     const handleSearch = async () => {
         setIsLoading(true);
-        const response = await axios.get(`http://localhost:5000/destinationsOnJulySearch?key=${key}&limit=${limit}&page=${page}`);
+        const response = await axios.get(`https://city-bike-marahim34.vercel.app/destinationsOnJulySearch?key=${key}&limit=${limit}&page=${page}`);
         setResult(response.data.data);
         setIsLoading(false);
     };

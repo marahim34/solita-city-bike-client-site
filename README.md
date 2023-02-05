@@ -12,7 +12,7 @@ Before you can compile and run the project, you need to have the following softw
 - npm v6 or higher
 
 ## Configurations
-No local configurations are needed. All required information is provided in the code.
+The project requires a .env.local file for storing environment variables. 
 
 ## How to run the project
 1.	Clone the repository to your local machine.

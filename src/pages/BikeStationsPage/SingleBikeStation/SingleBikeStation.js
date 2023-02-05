@@ -1,13 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { GoLocation } from 'react-icons/go';
 
 const SingleBikeStation = ({ bikeStation }) => {
-
-    // {"_id":"63d06315895a17f08f53237c","x":24.9620788508104,"y":60.2055418168461,"fid":266,"kaupunki":" ","name":"A.I. Virtasen aukio","namn_swedish":"A. I. Virtanens plats","nimi_finnish":"A.I. Virtasen aukio","operaattor":" ","osite":"Gustaf Hällströmin katu 1","stad":" ","address":"Gustaf Hällströms gata 1","id":204,"kapasiteet":24}
-
     const { _id, name, nimi_finnish, osite } = bikeStation;
-
 
     return (
         <div className="w-full lg:w-1/2 md:w-1/2 p-6 md:card-side shadow-xl mb-6 lg:mb-0">

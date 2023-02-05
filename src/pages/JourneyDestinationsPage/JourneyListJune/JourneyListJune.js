@@ -14,7 +14,7 @@ const JourneyListJune = () => {
     const getJourneyDestinations = async () => {
         setLoading(true);
         try {
-            const response = await axios.get(`http://localhost:5000/journey-destinations/june?page=${currentPage}&limit=${limit}&sortOrder=${sortOrder}`);
+            const response = await axios.get(`https://city-bike-marahim34.vercel.app/journey-destinations/june?page=${currentPage}&limit=${limit}&sortOrder=${sortOrder}`);
             setJourneyDestinations(response.data.data);
             setTotalPages(Math.ceil(response.data.count / limit));
             setJourneys(response.data.count);

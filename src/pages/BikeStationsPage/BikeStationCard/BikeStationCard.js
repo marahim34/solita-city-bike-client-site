@@ -9,7 +9,7 @@ const containerStyle = {
 
 const BikeStationCard = () => {
     const { data } = useLoaderData();
-    const { _id, x, y, kaupunki, name, namn_swedish, nimi_finnish, operaattor, osite, address } = data;
+    const { x, y, name, address } = data;
 
     const center = {
         lat: y,
