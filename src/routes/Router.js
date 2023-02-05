@@ -26,7 +26,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/bike-stations/:id',
-                loader: ({ params }) => fetch(`https://city-bike-marahim34.vercel.app/bike-stations/${params.id}`),
+                loader: ({ params }) => fetch(`http://localhost:5000/bike-stations/${params.id}`),
                 element: <BikeStationCard></BikeStationCard>
             },
             {

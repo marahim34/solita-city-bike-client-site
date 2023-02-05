@@ -36,7 +36,7 @@ const AddNewBikeStation = () => {
             }
         }
 
-        const response = await fetch('https://city-bike-marahim34.vercel.app/new-station', {
+        const response = await fetch('http://localhost:5000/new-station', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

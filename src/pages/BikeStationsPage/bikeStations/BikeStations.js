@@ -15,7 +15,7 @@ const BikeStations = () => {
     const getBikeStations = async () => {
         setLoading(true)
         try {
-            const response = await axios.get(`https://city-bike-marahim34.vercel.app/bike-stations?page=${currentPage}&limit=${limit}&sortOrder=${sortOrder}`);
+            const response = await axios.get(`http://localhost:5000/bike-stations?page=${currentPage}&limit=${limit}&sortOrder=${sortOrder}`);
             setBikeStations(response.data.data);
             setTotalPages(Math.ceil(response.data.count / limit));
         }
