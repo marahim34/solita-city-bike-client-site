@@ -30,8 +30,7 @@ const BikeStationCard = () => {
         <div className='block hero lg:flex md:flex'>
             <div className="w-full md:w-1/2 p-6 bg-white rounded shadow mt-6">
                 <h2 className="text-xl font-bold mb-4"> <span className='text-primary'>Station Name:</span>  {name}</h2>
-                <p className="text-gray-600">Address: {address}</p>
-                <p className="text-gray-600"> bikes available</p>
+                <p className="text-gray-600">Address: {address ? address : 'No address found'}</p>
 
             </div>
 
@@ -55,9 +54,9 @@ const BikeStationCard = () => {
                             >
                                 <div>
                                     <h2>{selectedStation.name}</h2>
-                                    <p>Address: {selectedStation.address}</p>
-                                    <p>Latitude: {selectedStation.y}</p>
-                                    <p>Longitude: {selectedStation.x}</p>
+                                    <p>Address: {selectedStation.address ? selectedStation.address : 'No data found'}</p>
+                                    <p>Latitude: {selectedStation.y ? selectedStation.y : 'No data found'}</p>
+                                    <p>Longitude: {selectedStation.x ? selectedStation.x : 'No data found'}</p>
                                 </div>
                             </InfoWindow>
                         )}

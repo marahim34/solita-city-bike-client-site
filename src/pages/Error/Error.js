@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Error = () => {
     return (
@@ -16,11 +17,11 @@ const Error = () => {
                                 Oops! That page can’t be found
                             </h4>
                             <p className="mb-8 text-lg text-white">
-                                The page you are looking for it maybe deleted
+                                The page you are looking for it maybe under development or deleted
                             </p>
-                            <button className="btn btn-success hover:text-primary inline-block rounded-lg border border-white px-8 py-3 text-center text-base font-semibold text-white transition hover:bg-white">
+                            <Link to='/'><button className="btn btn-success hover:text-primary inline-block rounded-lg border border-white px-8 py-3 text-center text-base font-semibold text-white transition hover:bg-white">
                                 Go To Home
-                            </button>
+                            </button></Link>
                         </div>
                     </div>
                 </div>

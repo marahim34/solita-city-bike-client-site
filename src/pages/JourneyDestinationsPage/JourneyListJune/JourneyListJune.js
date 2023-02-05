@@ -10,12 +10,11 @@ const JourneyListJune = () => {
     const [sortOrder, setSortOrder] = useState('');
     const [journeys, setJourneys] = useState(0);
     const [loading, setLoading] = useState(false);
-    const [filter, setFilter] = useState('');
 
     const getJourneyDestinations = async () => {
         setLoading(true);
         try {
-            const response = await axios.get(`http://localhost:5000/journey-destinations/june?page=${currentPage}&limit=${limit}&sortOrder=${sortOrder}&filter=${filter}`);
+            const response = await axios.get(`http://localhost:5000/journey-destinations/june?page=${currentPage}&limit=${limit}&sortOrder=${sortOrder}`);
             setJourneyDestinations(response.data.data);
             setTotalPages(Math.ceil(response.data.count / limit));
             setJourneys(response.data.count);
@@ -28,7 +27,7 @@ const JourneyListJune = () => {
 
     useEffect(() => {
         getJourneyDestinations();
-    }, [currentPage, limit, sortOrder, filter]);
+    }, [currentPage, limit, sortOrder]);
 
     const handleLimitChange = (event) => {
         setLimit(event.target.value);
@@ -42,9 +41,6 @@ const JourneyListJune = () => {
         setCurrentPage(page);
     };
 
-    const handleFilterChange = (event) => {
-        setFilter(event.target.value);
-    };
 
     const pageNumbers = [];
     for (let i = 1; i <= totalPages; i++) {
@@ -82,49 +78,6 @@ const JourneyListJune = () => {
                                     <option value={50}>50</option>
                                     <option value={100}>100</option>
                                 </select>
-                            </div>
-                            <div>
-                                <form onChange={handleFilterChange}>
-                                    <label for="departure_station_name">Departure Station Name:</label>
-                                    <select name="departure_station_name">
-                                        <option value="A.I. Virtasen aukio">A.I. Virtasen aukio</option>
-                                        <option value="Arabian kauppakeskus">Arabian kauppakeskus</option>
-                                    </select>
-
-                                    <label for="departure_station_id">Departure Station ID:</label>
-                                    <select name="departure_station_id">
-                                        {/* <!-- Add options for departure station IDs here --> */}
-                                    </select>
-
-                                    <label for="return_station_name">Return Station Name:</label>
-                                    <select name="return_station_name">
-                                        {/* <!-- Add options for return station names here --> */}
-                                    </select>
-
-                                    <label for="return_station_id">Return Station ID:</label>
-                                    <select name="return_station_id">
-                                        {/* <!-- Add options for return station IDs here --> */}
-                                    </select>
-
-                                    <label for="covered_distance_in_meter">Covered Distance (in meters):</label>
-                                    <select name="covered_distance_in_meter">
-                                        <option value="0-.5">0-.5</option>
-                                        <option value=".51-2">.51-2</option>
-                                        <option value="2-5">2-5</option>
-                                        <option value="more_than_5">more than 5</option>
-                                    </select>
-
-                                    <label for="duration_in_seconds">Duration (in seconds):</label>
-                                    <select name="duration_in_seconds">
-                                        <option value="less_than_2">less than 2</option>
-                                        <option value="3-5">3-5</option>
-                                        <option value="6-10">6-10</option>
-                                        <option value="more_than_10">more than 10</option>
-                                    </select>
-
-                                    {/* <!-- Add a submit button --> */}
-                                    <input type="submit" value="Submit" />
-                                </form>
                             </div>
                         </div>
                         <div className="flex flex-wrap w-full p-6 text-xs">

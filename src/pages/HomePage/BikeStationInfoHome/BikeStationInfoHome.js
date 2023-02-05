@@ -13,7 +13,6 @@ const BikeStationInfoHome = () => {
                         <p className="py-6 text-accent text-justify">Affordable pricing: 4 €/day, 7 €/month, offer for the rest of the season: 10€! (Until 31.10.). Discounted price is directly available in the app. All options include an unlimited number of 45-minute rides.
                         </p>
                         <div className='flex justify-center lg:justify-start'>
-                            <button className='btn btn-primary mr-4'>Buy Pass Now</button>
                             <Link to='/bike-stations'>
                                 <button className='btn btn-primary'>Our Bike Stations</button>
                             </Link>

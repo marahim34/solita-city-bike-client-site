@@ -74,13 +74,15 @@ const StationsSearch = () => {
                         className="border border-gray-500 rounded p-2 my-2 text-left"
                     >
                         <small>
-                            <p>Name: {item.name}</p>
-                            <p>Namn Swedish: {item.namn_swedish}</p>
-                            <p>Nimi Finnish: {item.nimi_finnish}</p>
-                            <p>Operaattor: {item.operaattor}</p>
-                            <p>Osite: {item.osite}</p>
-                            <p>Stad: {item.stad}</p>
-                            <p>Address: {item.address}</p></small>
+                            <p>Name: {item.name !== " " ? item.name : 'No data found'}</p>
+                            <p>Namn Swedish: {item.namn_swedish !== " " ? item.namn_swedish : 'No data found'}</p>
+                            <p>Nimi Finnish: {item.nimi_finnish !== " " ? item.nimi_finnish : 'No data found'}</p>
+                            <p>Operaattor: {item.operaattor !== " " ? item.operaattor : 'No data found'}</p>
+                            <p>Osite: {item.osite !== " " ? item.osite : 'No data found'}</p>
+                            <p>Stad: {item.stad !== " " ? item.stad : 'No data found'}</p>
+                            <p>Address: {item.address !== " " ? item.address : 'No address found'}</p>
+
+                        </small>
                         <Link to={`${item._id}`}><button className='btn-sm btn-primary rounded'>Details</button></Link>
                     </div>
                 ))}

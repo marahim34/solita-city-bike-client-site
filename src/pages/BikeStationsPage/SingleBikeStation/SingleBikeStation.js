@@ -15,9 +15,9 @@ const SingleBikeStation = ({ bikeStation }) => {
 
             <div className="card-body text-left">
                 <div className='h-12'>
-                    <h3 className="card-title text-lg font-semibold">Nimi: {nimi_finnish}</h3>
                     <h3 className="card-title text-lg font-semibold">Name: {name}</h3>
-                    <p className="text-sm text-gray-700 flex items-center gap-2"><GoLocation className='text-primary' /> {osite}</p>
+                    <h3 className="card-title text-lg font-semibold">Nimi: {nimi_finnish ? nimi_finnish : 'No data found'}</h3>
+                    <p className="text-sm text-gray-700 flex items-center gap-2"><GoLocation className='text-primary' /> {osite ? osite : 'No data found'}</p>
                 </div>
                 <div className="card-actions mt-6 flex justify-end">
                     <Link to={`/bike-stations/${_id}`}><button className="btn btn-primary">Details</button></Link>
