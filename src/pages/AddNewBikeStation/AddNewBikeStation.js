@@ -5,6 +5,7 @@ const AddNewBikeStation = () => {
     const [x, setX] = useState('');
     const [y, setY] = useState('');
     const [fid, setFid] = useState('');
+    const [id, setId] = useState('');
     const [kaupunki, setKaupunki] = useState('');
     const [name, setName] = useState('');
     const [namnSwedish, setNamnSwedish] = useState('');
@@ -14,9 +15,26 @@ const AddNewBikeStation = () => {
     const [stad, setStad] = useState('');
     const [address, setAddress] = useState('');
     const [kapasiteet, setKapasiteet] = useState('');
+    const [notification, setNotification] = useState('');
+
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        const form = event.target;
+
+        if (!x || !y || !fid || !id || !kaupunki || !name || !namnSwedish || !nimiFinnish || !operaattor || !osite || !stad || !address || !kapasiteet) {
+            window.alert('Please fill all the required fields');
+            return;
+        }
+
+        var numberInputs = [x, y, id, fid, kapasiteet];
+        const numberInputsName = ['x', 'y', 'id', 'fid', 'kapasiteet'];
+        for (let i = 0; i < numberInputs.length; i++) {
+            if (isNaN(numberInputs[i])) {
+                window.alert('Please input a number in the ' + numberInputsName[i] + ' field');
+                return;
+            }
+        }
 
         const response = await fetch('http://localhost:5000/new-station', {
             method: 'POST',
@@ -24,9 +42,10 @@ const AddNewBikeStation = () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                x,
-                y,
-                fid,
+                x: parseInt(x),
+                y: parseInt(y),
+                fid: parseInt(fid),
+                id: parseInt(id),
                 kaupunki,
                 name,
                 namn_swedish: namnSwedish,
@@ -35,20 +54,43 @@ const AddNewBikeStation = () => {
                 osite,
                 stad,
                 address,
-                kapasiteet
+                kapasiteet: parseInt(kapasiteet)
             })
         });
 
         if (response.ok) {
             console.log('Bike station added successfully');
+            setNotification('Bike station added successfully');
+            form.reset('');
+            setTimeout(() => {
+                setNotification('');
+                window.location.href = "/";
+            }, 2 * 60 * 1000);
+
         } else {
             console.error('Failed to add bike station');
+            setNotification('Failed to add bike station');
         }
+
     };
 
     return (
         <div className="flex flex-col items-center p-4 md:p-8 lg:p-16">
             <form className="w-full max-w-sm" onSubmit={handleSubmit}>
+                <div className="md:flex md:items-center mb-6">
+                    <div className="mb-6 mr-6">
+                        <label className="block text-gray-500 font-medium mb-2" htmlFor="x">
+                            Station ID
+                        </label>
+                        <input
+                            className="w-full bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primary"
+                            id="x"
+                            type="text"
+                            placeholder="ID (numbers only)"
+                            onChange={e => setId(e.target.value)}
+                        />
+                    </div>
+                </div>
                 <div className="md:flex md:items-center mb-6">
                     <div className="mb-6 mr-6">
                         <label className="block text-gray-500 font-medium mb-2" htmlFor="x">
@@ -58,7 +100,7 @@ const AddNewBikeStation = () => {
                             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primary"
                             id="x"
                             type="text"
-                            placeholder="X"
+                            placeholder="X (numbers only)"
                             onChange={e => setX(e.target.value)}
                         />
                     </div>
@@ -70,7 +112,7 @@ const AddNewBikeStation = () => {
                             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primary"
                             id="y"
                             type="text"
-                            placeholder="Y"
+                            placeholder="Y (numbers only)"
                             onChange={e => setY(e.target.value)}
                         />
                     </div>
@@ -85,7 +127,7 @@ const AddNewBikeStation = () => {
                             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primary"
                             id="fid"
                             type="text"
-                            placeholder="FID"
+                            placeholder="FID (numbers only)"
                             onChange={e => setFid(e.target.value)}
                         />
                     </div>
@@ -118,7 +160,7 @@ const AddNewBikeStation = () => {
                     </div>
                     <div className="mb-6">
                         <label className="block text-gray-500 font-medium mb-2" htmlFor="namn_swedish">
-                            Namn Swedish
+                            Swedish Name
                         </label>
                         <input
                             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primary"
@@ -134,7 +176,7 @@ const AddNewBikeStation = () => {
                 <div className="md:flex md:items-center mb-6">
                     <div className="mb-6 mr-6">
                         <label className="block text-gray-500 font-medium mb-2" htmlFor="nimi_finnish">
-                            Nimi Finnish
+                            Finnish Name
                         </label>
                         <input
                             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primary"
@@ -186,7 +228,6 @@ const AddNewBikeStation = () => {
                 </div>
 
 
-
                 <div className="md:flex md:items-center mb-6">
                     <div className="mb-6 mr-6">
                         <label className="block text-gray-500 font-medium mb-2" htmlFor="address">
@@ -207,8 +248,8 @@ const AddNewBikeStation = () => {
                         <input
                             className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primary"
                             id="kapasiteet"
-                            type="number"
-                            placeholder="Kapasiteet"
+                            type="text"
+                            placeholder="Kapasiteet (numbers only)"
                             onChange={e => setKapasiteet(e.target.value)}
                         />
                     </div>
@@ -217,13 +258,18 @@ const AddNewBikeStation = () => {
                 <div className="md:flex md:items-center">
                     <div className="md:w-1/3"></div>
                     <div className="md:w-2/3 text-center">
-                        <button type="submit" className="shadow bg-primary hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-medium py-2 px-4 rounded">
+                        <button type="submit" className="shadow bg-primary hover:bg-gray-400 focus:shadow-outline focus:outline-none text-white font-medium py-2 px-4 rounded">
                             Add Bike Station
                         </button>
                     </div>
                 </div>
-
             </form>
+
+            {notification && (
+                <div className="text-black py-2 px-4 mt-6">
+                    {notification}
+                </div>
+            )}
         </div>
 
     );
