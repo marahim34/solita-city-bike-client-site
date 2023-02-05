@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import Main from '../layout/Main';
-import About from '../pages/About/About';
+import AddNewBikeStation from '../pages/AddNewBikeStation/AddNewBikeStation';
 import BikeStationCard from '../pages/BikeStationsPage/BikeStationCard/BikeStationCard';
 import BikeStations from '../pages/BikeStationsPage/bikeStations/BikeStations';
 import Error from '../pages/Error/Error';
@@ -48,8 +48,8 @@ const Router = createBrowserRouter([
 
 
             {
-                path: '/about',
-                element: <About></About>
+                path: '/new-station',
+                element: <AddNewBikeStation></AddNewBikeStation>
             },
             {
                 path: '*',

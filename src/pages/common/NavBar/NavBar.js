@@ -17,7 +17,7 @@ const NavBar = () => {
                 <Link to='/journeyList-compiled'>Journey List</Link>
             </li>
             <li className={location.pathname === '/about' ? 'bg-primary rounded font-semibold' : ''}>
-                <Link to='/about'>About</Link>
+                <Link to='/new-station'>Add New Station</Link>
             </li>
         </>
     );
